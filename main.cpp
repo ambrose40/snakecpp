@@ -56,16 +56,16 @@ void createWalls(std::vector<Wall *> & walls) {
 	const int N_VERTICAL = Screen::S_HEIGHT / Wall::S_WALL_WIDTH - 2;
 
 	for (int i = 0; i < N_HORIZONTAL; i++) {
-		Wall * upperWall = new Wall(i * Wall::S_WALL_WIDTH, 0);
+		Wall * upperWall = new Wall(i * Wall::S_WALL_WIDTH, 0, 0);
 		Wall * lowerWall = new Wall(i * Wall::S_WALL_WIDTH, 
-			Screen::S_HEIGHT - 3 * Wall::S_WALL_WIDTH);
+			Screen::S_HEIGHT - 3 * Wall::S_WALL_WIDTH, 0);
 		walls.push_back(upperWall);
 		walls.push_back(lowerWall);
 	}
 	for (int i = 1; i < N_VERTICAL - 1; i++) {
-		Wall * leftmostWall = new Wall(0, i * Wall::S_WALL_WIDTH);
+		Wall * leftmostWall = new Wall(0, i * Wall::S_WALL_WIDTH, 0);
 		Wall * rightmostWall = new Wall(Screen::S_WIDTH - Wall::S_WALL_WIDTH,
-			i * Wall::S_WALL_WIDTH);
+			i * Wall::S_WALL_WIDTH, 0);
 		walls.push_back(leftmostWall);
 		walls.push_back(rightmostWall);
 	}
@@ -144,13 +144,26 @@ int main(int argc, char ** argv) {
 
 		int elapsed = SDL_GetTicks();
 
-		if (elapsed/10 % 6 == 0) {
+		if (elapsed/20 % 12 == 0) {
 			if (!snake.move())
 				resetLevel(snake, food, starting);
 			else {
+				int t = food.type;
 				if (snake.collidesWith(food)) {
 					food = Food();
-					score += Food::S_VALUE;
+
+					switch (t) {
+						case 1:
+							score += Food::S_VALUE_1;
+							break;
+						case 2:
+							score += Food::S_VALUE_2;
+							break;
+						case 3:
+							score += Food::S_VALUE_3;
+							break;
+					}
+					
 					snake.addSection();
 				}
 

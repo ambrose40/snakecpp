@@ -9,13 +9,13 @@
 
 namespace SnakeGame {
 
-const Uint8 Wall::S_WALL_RED = 0xFC;
-const Uint8 Wall::S_WALL_GREEN = 0x0F;
-const Uint8 Wall::S_WALL_BLUE = 0x08;
+const Uint8 Wall::S_WALL_RED = 0xAA;
+const Uint8 Wall::S_WALL_GREEN = 0xAA;
+const Uint8 Wall::S_WALL_BLUE = 0xAA;
 
 const unsigned int Wall::S_WALL_WIDTH = 20;
 
-Wall::Wall(int x, int y): Collideable(x, y) {}
+Wall::Wall(int x, int y, int t): Collideable(x, y, t) {}
 
 void Wall::draw(Screen & screen) {
 	for (int i = 0; i < S_WALL_WIDTH; i++)

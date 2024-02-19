@@ -19,9 +19,9 @@ struct Wall: Collideable {
 	static const unsigned int S_WALL_WIDTH;
 
 	/**
-	 * @see Collideable#Collideable(int, int)
+	 * @see Collideable#Collideable(int, int, int)
 	 */
-	Wall(int x, int y);
+	Wall(int x, int y, int t);
 
 	/**
 	 * @see Drawable#draw

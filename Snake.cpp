@@ -22,7 +22,7 @@ Snake::Snake(): m_speed(Snake::S_INITIAL_SPEED), m_lives(Snake::S_INITIAL_LIVES)
 	Section * newSection = nullptr;
 	for (int i = 0; i < S_N_SECTS; i++) {
 		newSection = new Section(Screen::S_WIDTH/2 - i*Section::S_SECTION_WIDTH,
-			3*Section::S_SECTION_WIDTH);
+			3*Section::S_SECTION_WIDTH, 0);
 		m_sections.push_back(newSection);
 	}
 }
@@ -107,6 +107,7 @@ void Snake::addSection() {
 
 	int x = 0;
 	int y = 0;
+	int t = 0;
 
 	switch (basePlacement) {
 		case Snake::Direction::UP:
@@ -126,7 +127,7 @@ void Snake::addSection() {
 			y = m_sections[N-1]->m_y;
 			break;
 	}
-	Section * newSection = new Section(x,y);
+	Section * newSection = new Section(x,y,t);
 	m_sections.push_back(newSection);	
 }
 

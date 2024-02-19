@@ -17,13 +17,14 @@ namespace SnakeGame {
 struct Drawable {	
 	int m_x;
 	int m_y;	
+	int type;
 
 	/**
 	 * Initialices Drawable object with a position
 	 * @param x X position of this object
 	 * @param y Y position of this object
 	 */
-	Drawable(int x, int y): m_x(x), m_y(y) {}
+	Drawable(int x, int y, int t): m_x(x), m_y(y), type(t) {}
 
 	/**
 	 * Draws on screen this object

@@ -23,7 +23,7 @@ struct Collideable: Drawable {
 	 * @param x X position of this object
 	 * @param y Y position of this object
 	 */
-	Collideable(int x, int y);
+	Collideable(int x, int y, int t);
 
 	/**
 	 * Validates whether there is a collision between this object and another

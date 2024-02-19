@@ -17,12 +17,20 @@ namespace SnakeGame {
  * Its (x,y) position corresponds to the top left pixel
  */
 struct Food: Collideable {
-	static const Uint8 S_FOOD_RED;
-	static const Uint8 S_FOOD_GREEN;
-	static const Uint8 S_FOOD_BLUE;
+	static const Uint8 S_FOOD_1_RED;
+	static const Uint8 S_FOOD_1_GREEN;
+	static const Uint8 S_FOOD_1_BLUE;
+	static const Uint8 S_FOOD_2_RED;
+	static const Uint8 S_FOOD_2_GREEN;
+	static const Uint8 S_FOOD_2_BLUE;
+	static const Uint8 S_FOOD_3_RED;
+	static const Uint8 S_FOOD_3_GREEN;
+	static const Uint8 S_FOOD_3_BLUE;
 
 	static const unsigned int S_FOOD_WIDTH;
-	static const int S_VALUE;
+	static const int S_VALUE_1;
+	static const int S_VALUE_2;
+	static const int S_VALUE_3;
 
 	/**
 	 * Default constructor for Food instances

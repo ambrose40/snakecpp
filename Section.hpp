@@ -25,9 +25,9 @@ struct Section: Collideable {
 	Section();
 
 	/**
-	 * @see Collideable#Collideable(int, int)
+	 * @see Collideable#Collideable(int, int, int)
 	 */
-	Section(int x, int y);
+	Section(int x, int y, int t);
 
 	/**
 	 * @see Drawable#draw
