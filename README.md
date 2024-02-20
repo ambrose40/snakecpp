@@ -8,7 +8,7 @@ The game implements lives system, pause, scores, random food and Game Over and G
 
 Compile on Linux with **g++ \*.cpp \`sdl2-config --cflags --libs\` -lSDL2_ttf**
 
-Compile on Windows with **g++ *.cpp -IC:\\SDL\\x86_64-w64-mingw32\\include -LC:\\SDL\\x86_64-w64-mingw32\\lib -w -W -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf -o snake.exe**
+Compile on Windows with **g++ \*.cpp -IC:\\SDL\\x86_64-w64-mingw32\\include -LC:\\SDL\\x86_64-w64-mingw32\\lib -w -W -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf -o snake.exe**
 
 ## Requirements
 
