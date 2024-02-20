@@ -4,6 +4,15 @@ Small prototype of the snake game made in C++ with the SDL 2 library (dev and tt
 
 The game implements lives system, pause, scores, random food and Game Over and Game Success screen. For the moment it only supports one speed.
 
+## Rules
+Food scores:
+🟢 green apple = 50 points
+🟡 yellow apple = 100 points
+🔴 red apple = 300 points
+
+Win condition: 1000 points earned!
+Lose condition: all 3 lives lost...
+
 ## Compilation
 
 Compile on Linux with **g++ \*.cpp \`sdl2-config --cflags --libs\` -lSDL2_ttf**
