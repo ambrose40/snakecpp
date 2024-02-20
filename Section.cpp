@@ -56,7 +56,7 @@ int Section::calculateDirection(Section & other) {
 }
 
 void Section::toString() { // TODO Remove - Used for debugging
-	SDL_Log("<%d, %d>", m_x, m_y);
+	SDL_Log("<%d, %d, %d>", m_x, m_y, type);
 }
 
 } // namespace SnakeGame

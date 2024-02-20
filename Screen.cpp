@@ -181,6 +181,26 @@ void Screen::drawGameOver() {
 		}
 }
 
+void Screen::drawGameWon() {
+	cint paintCol = S_WIDTH/2;
+	cint paintRow = S_HEIGHT/2;
+
+	for (int i = 0; i < S_HEIGHT; i++)
+		m_mainBuffer[i * S_WIDTH + paintCol] = 0x000000FF;
+
+	for (int i = 0; i < S_WIDTH; i++)
+		m_mainBuffer[paintRow * S_WIDTH + i] = 0x000000FF;
+
+	for (int i = 0; i < S_HEIGHT/2 - 1; i++)
+		for (int j = 0; j < S_WIDTH/2 - 1; j++) {
+			m_mainBuffer[i * S_WIDTH + j] = 0xFF00FFFF;
+			m_mainBuffer[(i * S_WIDTH + j) + S_WIDTH/2 + 2] = 0x00FF00FF;
+			m_mainBuffer[(i + S_HEIGHT/2 + 1) * S_WIDTH + j] = 0x00FF0000;
+			m_mainBuffer[(i + S_HEIGHT/2 + 1) * S_WIDTH + j + S_WIDTH/2 + 2] =
+				0xFF00FF00;
+		}
+}
+
 std::string Screen::createText(int score, int lives) {
 	std::stringstream sstr;
 	sstr << S_SCORE_TEXT << score << " - " << S_LIVES_TEXT << (lives-1);

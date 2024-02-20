@@ -177,11 +177,18 @@ int main(int argc, char ** argv) {
 			}
 		}
 
-		if (snake.m_lives == 0) {
-			screen.clear();			
-			screen.drawGameOver();
+		if (score >= 1000) {
+			snake.m_lives = 0;
+			screen.clear();	
+			screen.drawGameWon();	
+			
 			screen.update(score, snake.m_lives, true);
-
+			holdGame(screen, 3000);
+		} else if (snake.m_lives == 0) {
+			screen.clear();	
+			screen.drawGameOver();		
+			
+			screen.update(score, snake.m_lives, true);
 			holdGame(screen, 3000);
 		}
 	}

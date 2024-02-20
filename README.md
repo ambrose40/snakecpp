@@ -2,13 +2,13 @@
 
 Small prototype of the snake game made in C++ with the SDL 2 library (dev and ttf-dev, from SDL2).
 
-The game implements lives system, pause, and Game Over screen. For the moment it only supports one speed.
+The game implements lives system, pause, scores, random food and Game Over and Game Success screen. For the moment it only supports one speed.
 
 ## Compilation
 
 Compile on Linux with **g++ \*.cpp \`sdl2-config --cflags --libs\` -lSDL2_ttf**
 
-Compile on Windows with **g++ \*.cpp -IC:\\SDL\\i686-w64-mingw32\\include\\SDL2 -LC:\\SDL\\i686-w64-mingw32\\lib -w -Wl,-subsystem,windows -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf**
+Compile on Windows with **g++ *.cpp -IC:\\SDL\\x86_64-w64-mingw32\\include -LC:\\SDL\\x86_64-w64-mingw32\\lib -w -W -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf -o snake.exe**
 
 ## Requirements
 

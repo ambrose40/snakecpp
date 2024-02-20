@@ -41,13 +41,13 @@ void Food::draw(Screen & screen) {
 
 		switch (type) {
 			case 1:
-				screen.setPixel((int) m_x + i, (int) m_y + j, Food::S_FOOD_1_RED, Food::S_FOOD_1_GREEN, Food::S_FOOD_1_BLUE);
+				screen.setPixel((int) m_x + i, (int) m_y + j, S_FOOD_1_RED, S_FOOD_1_GREEN, S_FOOD_1_BLUE);
 				break;
 			case 2:
-				screen.setPixel((int) m_x + i, (int) m_y + j, Food::S_FOOD_2_RED, Food::S_FOOD_2_GREEN, Food::S_FOOD_2_BLUE);
+				screen.setPixel((int) m_x + i, (int) m_y + j, S_FOOD_2_RED, S_FOOD_2_GREEN, S_FOOD_2_BLUE);
 				break;
 			case 3:
-				screen.setPixel((int) m_x + i, (int) m_y + j, Food::S_FOOD_3_RED, Food::S_FOOD_3_GREEN, Food::S_FOOD_3_BLUE);
+				screen.setPixel((int) m_x + i, (int) m_y + j, S_FOOD_3_RED, S_FOOD_3_GREEN, S_FOOD_3_BLUE);
 				break;
 		}
 			

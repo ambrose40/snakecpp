@@ -88,6 +88,11 @@ public:
 	 */
 	void drawGameOver();
 
+	/**
+	 * Draw game won view on the screen
+	 */
+	void drawGameWon();
+
 private:
 	/**
 	 * Creates and returns display text
