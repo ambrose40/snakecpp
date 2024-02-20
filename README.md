@@ -32,4 +32,4 @@ Guide the snake to eat food while avoiding collisions with walls or the body of 
 
 ## Preview
 
-![Short gameplay demo](https://jcalvarezj.github.io/img/Snake.gif)
+![Short gameplay demo](https://ambrose40.github.io/snake.gif)
