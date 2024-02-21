@@ -13,6 +13,7 @@
 #include "Wall.hpp"
 #include "Screen.hpp"
 #include "SDL2/SDL.h"
+#include "main.h"
 
 using namespace SnakeGame;
 
@@ -44,10 +45,11 @@ bool pauseGame(Screen & screen, bool & pause) {
 	return quit;
 }
 
-void resetLevel(Snake & snake, Food & food, bool & starting) {
+void resetLevel(Snake & snake, Food & food, Food & food2, bool & starting) {
 	snake.die();
 	snake.reset();
 	food = Food();
+	food2 = Food();
 	starting = true;
 }
 
@@ -88,6 +90,8 @@ int main(int argc, char ** argv) {
 	Screen screen;
 	Snake snake;
 	Food food;
+	Food food2;
+
 	std::vector<Wall *> walls;
 	createWalls(walls);
 
@@ -101,11 +105,13 @@ int main(int argc, char ** argv) {
 	bool quit = false;
 	bool starting = true;
 	bool pause = false;
-
+	
 	while (!quit && snake.m_lives > 0) {
 		screen.clear();
 		snake.draw(screen);
 		food.draw(screen);
+		food2.draw(screen);
+
 		drawWalls(walls, screen);
 		screen.update(score, snake.m_lives, false);
 
@@ -146,34 +152,22 @@ int main(int argc, char ** argv) {
 
 		if (elapsed/20 % 12 == 0) {
 			if (!snake.move())
-				resetLevel(snake, food, starting);
+				resetLevel(snake, food, food2, starting);
 			else {
-				int t = food.type;
 				if (snake.collidesWith(food)) {
-					food = Food();
-
-					switch (t) {
-						case 1:
-							score += Food::S_VALUE_1;
-							break;
-						case 2:
-							score += Food::S_VALUE_2;
-							break;
-						case 3:
-							score += Food::S_VALUE_3;
-							break;
-					}
-					
-					snake.addSection();
+                    consumeFood(food, score, snake);
+                }
+				if (snake.collidesWith(food2)) {
+					consumeFood(food2, score, snake);
 				}
 
 				for (auto wall: walls)
 					if (snake.collidesWith(* wall))
-						resetLevel(snake, food, starting);
+						resetLevel(snake, food, food2, starting);
 
 				for (int i = 1; i < snake.m_sections.size(); i++)
 					if (snake.collidesWith(* snake.m_sections[i]))
-						resetLevel(snake, food, starting);
+						resetLevel(snake, food, food2, starting);
 			}
 		}
 
@@ -197,4 +191,29 @@ int main(int argc, char ** argv) {
 	screen.close();
 
 	return 0;
+}
+
+void consumeFood(SnakeGame::Food &food, int &score, SnakeGame::Snake &snake)
+{
+    int t = food.type;
+    food = Food();
+
+    switch (t)
+    {
+    case 1:
+        score += Food::S_VALUE_1;
+        snake.addSection();
+        break;
+    case 2:
+        score += Food::S_VALUE_2;
+        snake.addSection();
+        snake.addSection();
+        break;
+    case 3:
+        score += Food::S_VALUE_3;
+        snake.addSection();
+        snake.addSection();
+        snake.addSection();
+        break;
+    }
 }

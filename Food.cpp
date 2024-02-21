@@ -6,8 +6,6 @@
 #include <stdlib.h>
 #include "Screen.hpp"
 #include "Food.hpp"
-#include <ctime>
-
 namespace SnakeGame {
 
 const Uint8 Food::S_FOOD_1_RED = 0x00;
@@ -29,7 +27,6 @@ const int Food::S_VALUE_2 = 100;
 const int Food::S_VALUE_3 = 300;
 
 Food::Food(): Collideable(0, 0, 0) {
-	srand(time(0));
     type = (int) (rand() % 3) + 1;
 	m_x = (int) ((Screen::S_WIDTH / S_FOOD_WIDTH - 2.0) * (1.0 * rand() / RAND_MAX) + 1) * S_FOOD_WIDTH;
 	m_y = (int) ((Screen::S_HEIGHT / S_FOOD_WIDTH - 4.0) * (1.0 * rand() / RAND_MAX) + 1) * S_FOOD_WIDTH;
